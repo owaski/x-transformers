@@ -1943,8 +1943,9 @@ class AttentionLayers(Module):
         attn_cache = []
 
         if exists(cache):
-            assert not self.training and self.causal and not any([*map(exists, (mask, attn_mask))])
-
+            # assert not self.training and self.causal and not any([*map(exists, (mask, attn_mask))])
+            assert not self.training
+            
             if exists(context):
                 context = context[:, :0]
 
